@@ -16,11 +16,11 @@ export default class PlatformDevCertCalculator extends LightningElement {
     }
 
     handleChange(event){
-        console.log(event);
         console.log(event.target.name, event.target.value);
-        console.log(event.target.type);
-        console.log(event.target.label);
-        const inputType = event.target.name; 
+        const inputType = event.target.name;
+        
+        // Store the input coming in and convert it to number using JavaScript 
+        let value =  Number(event.target.value);
         if(inputType === 'devFundamentals'){
             this.devFundamentalScore = event.target.value;
         }else if(inputType === 'processAutomationScore'){
