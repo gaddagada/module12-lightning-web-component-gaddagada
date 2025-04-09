@@ -10,4 +10,8 @@ export default class PlatformDevCertCalculator extends LightningElement {
 
     //Certification score variable
     certificationScore = 90; 
+
+    calculateScore(){
+        certificationScore = this.devFundamentalScore + this.processAutomationScore + this.userInterfaceScore + this.testingScore;
+    }
 }
