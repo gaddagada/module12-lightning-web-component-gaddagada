@@ -12,23 +12,27 @@ export default class PlatformDevCertCalculator extends LightningElement {
     certificationScore = 90; 
 
     calculateScore(){
-        certificationScore = this.devFundamentalScore + this.processAutomationScore + this.userInterfaceScore + this.testingScore;
+        let devFundWeight = this.devFundamentalScore * 0.23; 
+        let processAutoWeight = this.processAutomationScore * 0.30;
+        let userIntWeight = this.userInterfaceScore * 0.25; 
+        let testDebugWeight = this.testingScore * 0.22;
+        this.certificationScore = devFundWeight + processAutoWeight + userIntWeight + testDebugWeight;
     }
 
     handleChange(event){
         console.log(event.target.name, event.target.value);
         const inputType = event.target.name;
-        
+
         // Store the input coming in and convert it to number using JavaScript 
         let value =  Number(event.target.value);
         if(inputType === 'devFundamentals'){
-            this.devFundamentalScore = event.target.value;
+            this.devFundamentalScore = value;
         }else if(inputType === 'processAutomationScore'){
-            this.processAutomationScore = event.target.value;
+            this.processAutomationScore = value;
         }if(inputType === 'userInterfaceScore'){
-            this.userInterfaceScore = event.target.value;
+            this.userInterfaceScore = value;
         }if(inputType === 'testingScore'){
-            this.testingScore = event.target.value;
+            this.testingScore = value;
         }
     
 
