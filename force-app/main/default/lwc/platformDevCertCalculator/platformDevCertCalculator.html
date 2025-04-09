@@ -2,7 +2,14 @@
 </div>
     <lightning-card title="PD1 Calculator">
         <!-- Process-->
-        <lightning-button variant="brand" label="Calculate" title="Calculate" class="slds-m-left_x-small" slot="action"></lightning-button>
+        <lightning-button 
+                variant="brand" 
+                label="Calculate" 
+                title="Calculate" 
+                class="slds-m-left_x-small" s
+                lot="action"
+                onclick={calculateScore}
+            ></lightning-button>
         <!-- Input Information -->
         <div class="slds-p-horizontal_small">
             <lightning-input 
