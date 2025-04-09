@@ -1,4 +1,10 @@
 import { LightningElement } from 'lwc';
+    // Const weights 
+    const devFundWeight = 0.23; 
+    const processAutoWeight = 0.30; 
+    const userIntWeight = 0.25; 
+    const testDebugWeight = 0.22; 
+
 
 export default class PlatformDevCertCalculator extends LightningElement {
 
@@ -12,10 +18,10 @@ export default class PlatformDevCertCalculator extends LightningElement {
     certificationScore = 90; 
 
     calculateScore(){
-        let devFundWeight = this.devFundamentalScore * 0.23; 
-        let processAutoWeight = this.processAutomationScore * 0.30;
-        let userIntWeight = this.userInterfaceScore * 0.25; 
-        let testDebugWeight = this.testingScore * 0.22;
+        let devFundamentalScore = this.devFundamentalScore * devFundWeight; 
+        let processAutomationScore = this.processAutomationScore * processAutoWeight;
+        let userInterfaceScore = this.userInterfaceScore * userIntWeight; 
+        let testingScore = this.testingScore * testDebugWeight;
         this.certificationScore = devFundWeight + processAutoWeight + userIntWeight + testDebugWeight;
     }
 
