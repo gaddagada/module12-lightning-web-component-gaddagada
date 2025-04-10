@@ -18,6 +18,13 @@ export default class PlatformDevCertCalculator extends LightningElement {
     showResources = false;
     showGoodJob = false;
 
+    attemptHistory = [
+        {Id: 1, Score:50}, 
+        {Id: 2, Score:25}, 
+        {Id: 3, Score:70},
+        {Id: 4, Score:90}
+    ];
+
     //Certification score variable
     certificationScore = 90; 
 

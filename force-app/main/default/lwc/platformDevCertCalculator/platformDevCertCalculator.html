@@ -46,7 +46,12 @@
         <div slot="footer">
             <h1 class="slds-text-heading_large slda-text-title_caps">Certification Results</h1> 
             <p class="slda-text-heading_medium"> Certification Score: <span class="slds-text-color_destructive">{certificationScore}%</span></p>
-
+                <div>
+                    <h1 class="slds-text-heading_large">Previous Attempt</h1>
+                    <ul for:each={attemptHistory} for:item="attempt" key={attempt.Id}>
+                        <li>Attempt: {attempt.Id}, Score: {attempt.Score}%</li>
+                    </ul>
+                </div>
                 <template lwc:if={showResources}>
                     <ul class="slds-text-align_left slds-text-heading_small slds-var-p-top_medium slds-list_dotted slds-box"> 
                         <li class="resourceLi"> 
@@ -72,5 +77,3 @@
         </div>
     </lightning-card>
 </template>
-
-<!-- List Iteration -->
