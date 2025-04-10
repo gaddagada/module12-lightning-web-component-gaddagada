@@ -16,6 +16,8 @@ export default class PlatformDevCertCalculator extends LightningElement {
     testingScore = 50; 
 
     showResources = false;
+
+    currentHistoryId = 0; 
     showGoodJob = false;
 
     @track attemptHistory = [
@@ -67,10 +69,11 @@ export default class PlatformDevCertCalculator extends LightningElement {
     }
 
     addAttemptHistory(Score){
-        const attempt =
-                {
-                    Id:this.attemptHistory.length + 1,  Score
-                }
+        this.currentHistoryId ++
+        const attempt = 
+            {
+                Id: this.currentHistoryId, Score
+            }
         this.attemptHistory = [...this.attemptHistory, attempt];
     }
 
