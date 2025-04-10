@@ -1,4 +1,4 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, track } from 'lwc';
     // Const weights 
     const devFundWeight = 0.23; 
     const processAutoWeight = 0.30; 
@@ -18,7 +18,7 @@ export default class PlatformDevCertCalculator extends LightningElement {
     showResources = false;
     showGoodJob = false;
 
-    attemptHistory = [
+    @track attemptHistory = [
         {Id: 1, Score:50}, 
         {Id: 2, Score:25}, 
         {Id: 3, Score:70},
@@ -36,6 +36,7 @@ export default class PlatformDevCertCalculator extends LightningElement {
         this.certificationScore = devFundWeight + processAutoWeight + userIntWeight + testDebugWeight;
 
         this.showResourceIfFailed();
+        this.addAttemptHistory(this.certificationScore);
 
     }
 
@@ -63,5 +64,14 @@ export default class PlatformDevCertCalculator extends LightningElement {
             this.showResources = false;
         }
         this.showGoodJob = !showResources;
+    }
+
+    addAttemptHistory(Score){
+        const attempt =
+                {
+                    Id:this.attemptHistory.length + 1,  Score
+                }
+        this.attemptHistory = [...this.attemptHistory, attempt];
+
     }
 }
