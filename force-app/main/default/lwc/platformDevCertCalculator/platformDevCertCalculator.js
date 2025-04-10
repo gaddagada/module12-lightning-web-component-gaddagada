@@ -4,6 +4,7 @@ import { LightningElement } from 'lwc';
     const processAutoWeight = 0.30; 
     const userIntWeight = 0.25; 
     const testDebugWeight = 0.22; 
+    const passingScore = 68; 
 
 
 export default class PlatformDevCertCalculator extends LightningElement {
@@ -14,6 +15,8 @@ export default class PlatformDevCertCalculator extends LightningElement {
     userInterfaceScore = 50; 
     testingScore = 50; 
 
+    showResources = false;
+
     //Certification score variable
     certificationScore = 90; 
 
@@ -23,6 +26,9 @@ export default class PlatformDevCertCalculator extends LightningElement {
         let userInterfaceScore = this.userInterfaceScore * userIntWeight; 
         let testingScore = this.testingScore * testDebugWeight;
         this.certificationScore = devFundWeight + processAutoWeight + userIntWeight + testDebugWeight;
+
+        this.showResourceIfFailed();
+
     }
 
     handleChange(event){
@@ -40,8 +46,13 @@ export default class PlatformDevCertCalculator extends LightningElement {
         }if(inputType === 'testingScore'){
             this.testingScore = value;
         }
-    
+    }
 
-
+    showResourceIfFailed(){
+        if(this.certificationScore < passingScore){
+            this.showResources = true;
+        }else{
+            this.showResources = false;
+        }
     }
 }

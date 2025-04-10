@@ -46,20 +46,26 @@
         <div slot="footer">
             <h1 class="slds-text-heading_large slda-text-title_caps">Certification Results</h1> 
             <p class="slda-text-heading_medium"> Certification Score: <span class="slds-text-color_destructive">{certificationScore}%</span></p>
-            <ul class="slds-text-align_left slds-text-heading_small slds-var-p-top_medium slds-list_dotted slds-box"> 
-                <li class="slds-text-title_bold"> 
-                    Resources: 
-                </li>
-                <li> 
-                    <a href="https://trailhead.salesforce.com/en/credentials/platofrmdeveloperi">PD1 Exam Guide</a>
-                </li>
-                <li> 
-                    <a href="https://focusonforce.com.courses/salesforce-certified-platform-developer-1-exams/">Focus on Force/a>
-                </li>
-                <li> 
-                    <a href="https://courses.salesforcementor.com/p/salesforce-development-apex-fundamentals">Salesforce Mentor</a>
-                </li>
-            </ul>
+
+                <template if:true={showResources}>
+                    <ul class="slds-text-align_left slds-text-heading_small slds-var-p-top_medium slds-list_dotted slds-box"> 
+                        <li class="slds-text-title_bold"> 
+                            Resources: 
+                        </li>
+                        <li> 
+                            <a href="https://trailhead.salesforce.com/en/credentials/platofrmdeveloperi">PD1 Exam Guide</a>
+                        </li>
+                        <li> 
+                            <a href="https://focusonforce.com.courses/salesforce-certified-platform-developer-1-exams/">Focus on Force/a>
+                        </li>
+                        <li> 
+                            <a href="https://courses.salesforcementor.com/p/salesforce-development-apex-fundamentals">Salesforce Mentor</a>
+                        </li>
+                    </ul>
+                </template>
+                <template if:false={showResources}> 
+                    <p>You are ready for your first developer job!</p>
+                </template>
         </div>
 </lightning-card>
 </template>
