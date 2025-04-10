@@ -6,7 +6,7 @@
                 variant="brand" 
                 label="Calculate" 
                 title="Calculate" 
-                class="slds-m-left_x-small" s
+                class="slds-m-left_x-small" 
                 lot="action"
                 onclick={calculateScore}
                 onchange={handleChange}
@@ -49,7 +49,7 @@
 
                 <template lwc:if={showResources}>
                     <ul class="slds-text-align_left slds-text-heading_small slds-var-p-top_medium slds-list_dotted slds-box"> 
-                        <li class="slds-text-title_bold"> 
+                        <li class="resourceLi"> 
                             Resources: 
                         </li>
                         <li> 
@@ -72,3 +72,5 @@
         </div>
     </lightning-card>
 </template>
+
+<!-- List Iteration -->
