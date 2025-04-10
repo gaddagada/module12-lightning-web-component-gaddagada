@@ -16,6 +16,7 @@ export default class PlatformDevCertCalculator extends LightningElement {
     testingScore = 50; 
 
     showResources = false;
+    showGoodJob = false;
 
     //Certification score variable
     certificationScore = 90; 
@@ -54,5 +55,6 @@ export default class PlatformDevCertCalculator extends LightningElement {
         }else{
             this.showResources = false;
         }
+        this.showGoodJob = !showResources;
     }
 }

@@ -47,7 +47,7 @@
             <h1 class="slds-text-heading_large slda-text-title_caps">Certification Results</h1> 
             <p class="slda-text-heading_medium"> Certification Score: <span class="slds-text-color_destructive">{certificationScore}%</span></p>
 
-                <template if:true={showResources}>
+                <template lwc:if={showResources}>
                     <ul class="slds-text-align_left slds-text-heading_small slds-var-p-top_medium slds-list_dotted slds-box"> 
                         <li class="slds-text-title_bold"> 
                             Resources: 
@@ -63,9 +63,12 @@
                         </li>
                     </ul>
                 </template>
-                <template if:false={showResources}> 
+                <template lwc:elseif={showGoodJob}>
                     <p>You are ready for your first developer job!</p>
                 </template>
+                <template lwc:else>
+                    <p>Press calculate to see your score.</p> 
+                </template>
         </div>
-</lightning-card>
+    </lightning-card>
 </template>
